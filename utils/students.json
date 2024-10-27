@@ -1,0 +1,16 @@
+[
+  {
+    "studentID": "1",
+    "admissionID": "A001",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "2000-01-01",
+    "gender": "Male",
+    "emailAddress": "john.doe@example.com",
+    "phoneNumber": "9876543210",
+    "course": "Computer Science",
+    "yearOfStudy": "1st",
+    "profilePicture": "profile.jpg",
+    "id": "1730042011472750"
+  }
+]
