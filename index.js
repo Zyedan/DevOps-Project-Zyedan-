@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 
 app.use(express.static("./public"));
 
+const { addCourse } = require('./utils/CourseUtil.js');
+app.post('/add-course', addCourse);
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
