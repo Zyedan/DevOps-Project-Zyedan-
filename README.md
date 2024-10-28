@@ -11,6 +11,17 @@ Student Managment system. (Only do POST & PUT)
 4. Jacqueline - POST (course)
 
 Database for Student:
+		this.studentID = studentID;
+	        this.admissionID = admissionID;
+	        this.firstName = firstName;
+	        this.lastName = lastName;
+	        this.dateOfBirth = dateOfBirth;
+	        this.gender = gender;
+	        this.emailAddress = emailAddress;
+	        this.phoneNumber = phoneNumber;
+	        this.course = course;
+	        this.yearOfStudy = yearOfStudy;
+	        this.profilePicture = profilePicture;
 
 Database for Course:
 		this.name = name;
