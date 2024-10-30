@@ -30,7 +30,6 @@ Database for Course:
 		this.modules = modules;
 		this.course_department = course_department;
 		this.course_fee = course_fee;
-		this.enrollment_limit = enrollment_limit;
 		this.requirements = requirements;
 		this.course_intake = course_intake;
 
