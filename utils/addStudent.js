@@ -1,35 +1,30 @@
-const fs = require('fs').promises;
+const fs = require('fs').promises; // Import the filesystem module
 const { Student } = require('../models/addStudentModel.js'); // Import the Student class
 
-const studentsFilePath = 'utils/students.json'; // Path to your students JSON file
+const studentsFilePath = 'utils/students.json'; // Path to students JSON file
 
 async function readJSON(filename) {
     try {
         const data = await fs.readFile(filename, 'utf8');
         return JSON.parse(data);
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            return []; // Return an empty array if the file is not found
-        }
-        console.log('Error reading file:', error);
-        throw error;
+    } catch (err) {
+        console.error(err);
+        throw err;
     }
 }
+
 
 async function writeJSON(object, filename) {
     try {
-        await fs.writeFile(filename, JSON.stringify(object, null, 2), 'utf8');
-        return object;
-    } catch (error) {
-        console.log('Error writing file:', error);
-        throw error;
-    }
-}
-
-function generateStudentID(lastID) {
-    // Increment the last ID to generate a new unique studentID
-    return (parseInt(lastID, 10) + 1).toString();
-}
+        const allObjects = await readJSON(filename);
+        allObjects.push(object);
+        await fs.writeFile(filename, JSON.stringify(allObjects), 'utf8');
+        return allObjects;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }   
+}   
 
 async function addStudent(req, res) {
     try {
@@ -72,15 +67,9 @@ async function addStudent(req, res) {
         // Read existing students from the JSON file
         const allStudents = await readJSON(studentsFilePath);
 
-        // Find the last studentID or default to '0' if no students exist
-        const lastStudent = allStudents.length > 0 ? allStudents[allStudents.length - 1] : { studentID: '0' };
-
-        // Generate a unique studentID
-        const studentID = generateStudentID(lastStudent.studentID);
 
         // Create a new Student instance
         const newStudent = new Student(
-            studentID,
             admissionID,
             firstName,
             lastName,
