@@ -1,16 +1,50 @@
 [
   {
-    "studentID": "1",
-    "admissionID": "A001",
-    "firstName": "John",
+    "admissionID": "A",
+    "firstName": "Hasini",
     "lastName": "Doe",
     "dateOfBirth": "2000-01-01",
     "gender": "Male",
     "emailAddress": "john.doe@example.com",
     "phoneNumber": "9876543210",
     "course": "Computer Science",
-    "yearOfStudy": "1st",
-    "profilePicture": "profile.jpg",
-    "id": "1730042011472750"
+    "yearOfStudy": "1",
+    "id": "1730792041373988"
+  },
+  {
+    "admissionID": "B",
+    "firstName": "d",
+    "lastName": "d",
+    "dateOfBirth": "2024-11-23",
+    "gender": "Female",
+    "emailAddress": "ha@gmail.com",
+    "phoneNumber": "22222222",
+    "course": "tt",
+    "yearOfStudy": "1",
+    "id": "1730795788734738"
+  },
+  {
+    "admissionID": "B1",
+    "firstName": "d",
+    "lastName": "d",
+    "dateOfBirth": "2024-11-29",
+    "gender": "Female",
+    "emailAddress": "has@gmail.com",
+    "phoneNumber": "22222223",
+    "course": "tt",
+    "yearOfStudy": "1",
+    "id": "1730795825099195"
+  },
+  {
+    "admissionID": "C",
+    "firstName": "d",
+    "lastName": "d",
+    "dateOfBirth": "2024-11-04",
+    "gender": "Female",
+    "emailAddress": "h@gmail.com",
+    "phoneNumber": "12345678",
+    "course": "it",
+    "yearOfStudy": "1",
+    "id": "1730796261358776"
   }
 ]
