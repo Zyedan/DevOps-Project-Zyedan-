@@ -38,6 +38,7 @@ async function addStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
+            profilePicture
         } = req.body;
 
         // Validation checks for required fields
@@ -97,6 +98,7 @@ async function addStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
+            profilePicture
         );
 
         // Add the new student to the JSON data
