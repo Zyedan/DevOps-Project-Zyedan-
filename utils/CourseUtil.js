@@ -7,7 +7,7 @@ async function readJSON(filename) {
 	try {
 		const data = await fs.readFile(filename, 'utf8');
 		return JSON.parse(data);
-	} catch (err) { 
+	} catch (err) {
 		console.error(err); throw err;
 	}
 }
@@ -23,22 +23,29 @@ async function writeJSON(object, filename) {
 }
 
 async function addCourse(req, res) {
-	try {
-		const name = req.body.name;
-		const course_code = req.body.course_code;
-		const description = req.body.description;
-		const modules = req.body.modules;
-		const course_department = req.body.course_department;
-		const course_fee = req.body.course_fee;
-		const requirements = req.body.requirements;
-		const course_intake = req.body.course_intake;
+    try {
+        const name = req.body.name;
+        const course_code = req.body.course_code;
+        const description = req.body.description;
+        const modules = req.body.modules;
+        const course_department = req.body.course_department;
+        const course_fee = req.body.course_fee;
+        const requirements = req.body.requirements;
+        const course_intake = req.body.course_intake;
 
-		const newCourse = new Course(name, course_code, description, modules, course_department, course_fee, requirements, course_intake);
-		const updatedCourses = await writeJSON(newCourse, 'utils/courses.json');
-		return res.status(201).json(updatedCourses);
-		} catch (error) {
-			return res.status(500).json({ error: error.message });
-	}  
+        // Check if course_fee and course_intake are only numbers (positive integers or decimals)
+        if (!/^\d+(\.\d+)?$/.test(course_fee) || !/^\d+$/.test(course_intake)) {
+            return res.status(400).json({ message: 'Validation error' });
+        } else {
+            const newCourse = new Course(name, course_code, description, modules, course_department, course_fee, requirements, course_intake);
+            const updatedCourses = await writeJSON(newCourse, 'utils/courses.json');
+            return res.status(201).json(updatedCourses);
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
 }
 
-module.exports = {readJSON, writeJSON, addCourse};
+
+
+module.exports = { readJSON, writeJSON, addCourse };
