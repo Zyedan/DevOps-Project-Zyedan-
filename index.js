@@ -3,6 +3,8 @@ var bodyParser = require("body-parser");
 const { addStudent } = require('./utils/addStudentUtil');
 var app = express();
 
+app.use(cors());
+
 const PORT = process.env.PORT || 5050;
 
 var startPage = "index.html";
