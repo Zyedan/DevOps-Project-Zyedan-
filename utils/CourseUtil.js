@@ -29,14 +29,13 @@ async function addCourse(req, res) {
         const description = req.body.description;
         let modules = req.body.modules;
         if (!Array.isArray(modules)) {
-            modules = [modules]; // Convert single input to array if necessary
+            modules = [modules]; 
         }
         const course_department = req.body.course_department;
         const course_fee = req.body.course_fee;
         const requirements = req.body.requirements;
         const course_intake = req.body.course_intake;
 
-        // Check if course_fee and course_intake are only numbers (positive integers or decimals)
         if (!/^\d+(\.\d+)?$/.test(course_fee) || !/^\d+$/.test(course_intake)) {
             return res.status(400).json({ message: 'Validation error' });
         } else {
@@ -48,7 +47,5 @@ async function addCourse(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
-
-
 
 module.exports = { readJSON, writeJSON, addCourse };
