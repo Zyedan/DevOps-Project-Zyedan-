@@ -5,7 +5,13 @@ function addCourse() {
 	jsonData.name = document.getElementById('name').value;
 	jsonData.course_code = document.getElementById('course_code').value;
 	jsonData.description = document.getElementById('description').value;
-	jsonData.modules = document.getElementById('modules').value;
+	var moduleInputs = document.getElementsByName('modules[]');
+    jsonData.modules = [];
+    for (var i = 0; i < moduleInputs.length; i++) {
+        if (moduleInputs[i].value !== '') { // Ensure non-empty values are added
+            jsonData.modules.push(moduleInputs[i].value);
+        }
+    }
 	jsonData.course_department = document.getElementById('course_department').value;
 	jsonData.course_fee = document.getElementById('course_fee').value;
 	jsonData.course_intake = document.getElementById('course_intake').value;

@@ -27,7 +27,10 @@ async function addCourse(req, res) {
         const name = req.body.name;
         const course_code = req.body.course_code;
         const description = req.body.description;
-        const modules = req.body.modules;
+        let modules = req.body.modules;
+        if (!Array.isArray(modules)) {
+            modules = [modules]; // Convert single input to array if necessary
+        }
         const course_department = req.body.course_department;
         const course_fee = req.body.course_fee;
         const requirements = req.body.requirements;
