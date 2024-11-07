@@ -1,5 +1,5 @@
 class Student {
-    constructor( admissionID, firstName, lastName, dateOfBirth, gender, emailAddress, phoneNumber, course, yearOfStudy) {
+    constructor( admissionID, firstName, lastName, dateOfBirth, gender, emailAddress, phoneNumber, course, yearOfStudy, profilePicture) {
         this.admissionID = admissionID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -9,6 +9,7 @@ class Student {
         this.phoneNumber = phoneNumber;
         this.course = course;
         this.yearOfStudy = yearOfStudy;
+        this.profilePicture = profilePicture
 
         const timestamp = new Date().getTime();
         const random = Math.floor(Math.random() * 1000); // Random number between 0 and 999
