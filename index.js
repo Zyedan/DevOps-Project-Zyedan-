@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require("body-parser");
-const { addStudent } = require('./utils/addStudent');
+const { addStudent } = require('./utils/addStudentUtil');
 var app = express();
 
 const PORT = process.env.PORT || 5050;
