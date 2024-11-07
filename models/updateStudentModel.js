@@ -1,6 +1,5 @@
 class Student {
-    constructor(studentID, admissionID, firstName, lastName, dateOfBirth, gender, emailAddress, phoneNumber, course, yearOfStudy, profilePicture) {
-        this.studentID = studentID;
+    constructor(admissionID, firstName, lastName, dateOfBirth, gender, emailAddress, phoneNumber, course, yearOfStudy, profilePicture) {
         this.admissionID = admissionID;
         this.firstName = firstName;
         this.lastName = lastName;
