@@ -64,4 +64,12 @@ async function editCourse(req, res) {
     }
 }
 
-module.exports = { readJSON, writeJSON, editCourse };
+async function viewCourses(req, res) {
+    try{
+        const allCourses = await readJSON('utils/courses.json');
+        return res.status(201).json(allCourses);
+    }catch (error){
+        return res.status(500).json({ message: error.message });
+    }
+}
+module.exports = { readJSON, writeJSON, editCourse, viewCourses };
