@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # For JavaScript/Node.js, use "npm"
+    directory: "/" # Location of the `package.json` file
+    schedule:
+      interval: "daily" # Options: daily, weekly, monthly
+    open-pull-requests-limit: 5 # Maximum number of open PRs Dependabot can create
