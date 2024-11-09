@@ -21,7 +21,6 @@ function addStudent() {
     jsonData.phoneNumber = document.getElementById("phoneNumber").value;
     jsonData.course = document.getElementById("course").value;
     jsonData.yearOfStudy = document.getElementById("yearOfStudy").value;
-    jsonData.profilePicture = document.getElementById("profilePicture").value;
 
     let errorMessage = "";
 
@@ -71,7 +70,6 @@ function addStudent() {
             document.getElementById("phoneNumber").value = "";
             document.getElementById("course").value = "";
             document.getElementById("yearOfStudy").value = "";
-            document.getElementById("profilePicture").value = "";
 
             // Close the modal after successful submission
             setTimeout(() => {

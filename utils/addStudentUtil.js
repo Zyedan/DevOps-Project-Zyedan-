@@ -1,5 +1,5 @@
 const fs = require('fs').promises; // Import the filesystem module
-const { Student } = require('../models/addStudentModel.js'); // Import the Student class
+const { Student } = require('../models/studentModel.js'); // Import the Student class
 
 const studentsFilePath = 'utils/students.json'; // Path to students JSON file
 
@@ -38,7 +38,6 @@ async function addStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
-            profilePicture
         } = req.body;
 
         // Validation checks for required fields
@@ -98,7 +97,6 @@ async function addStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
-            profilePicture
         );
 
         // Add the new student to the JSON data

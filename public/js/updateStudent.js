@@ -54,7 +54,7 @@ async function submitForm(event) {
     };
 
     try {
-        const response = await fetch(`http://localhost:5050/update-student/${studentId}`, {
+        const response = await fetch(`http://localhost:5050/students/${studentId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
