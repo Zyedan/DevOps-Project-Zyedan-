@@ -1,73 +1,153 @@
+/* Basic reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 30px;
+}
+
+/* Header */
 .header {
-    padding: 10px;
     text-align: center;
-    background-color: #334d73;
-    color: aliceblue;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
 }
 
-.get {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
+.header h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Row Styling */
+.row {
+    margin-bottom: 20px;
+}
+
+/* Image */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #007bff;
     color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
 }
 
-.post {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-striped-custom {
+    border: 1px solid #ddd;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
     color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
 }
 
-.put {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
     color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.delete {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.btn-outline-secondary {
+    background-color: transparent;
+    color: #007bff;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+    padding: 20px;
+}
 
+.modal-header {
+    border-bottom: 2px solid #007bff;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.close {
+    font-size: 1.5rem;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, .5);
+}
+
+button[type="button"] {
+    margin-top: 10px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    border-top: 2px solid #007bff;
+    text-align: right;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
