@@ -10,15 +10,101 @@
 </head>
 
 <body>
-    <div class="header">
-        <h1> Welcome </h1>
-    </div>
-    <div class="main">
-        <button class="get btn" onclick="window.location.href='course_update.html'">GET</button>
-        <button class="post btn"> POST </button>
-        <button class="update btn" onclick="openModal()"> Update Course </button>
-        <button class="delete btn"> DELETE </button>
-    </div>
+	<div class="header">
+		<h1>Student Management System</h1>
+	</div>
+
+  
+  <!-- Add course part -->
+    <div class="container mt-5">
+		<div class="row-justify-content-center">
+			<div class="col-md-10"></div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#courseModal">Add New Course</button>
+			</div>
+		</div>
+	</div>
+
+<!--Add course Modal-->
+	<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="courseModalLabel">Add new course</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="name">Course Name</label>
+							<input type="text" class="form-control" id="name" placeholder="Enter course name">
+						</div>
+						<div class="form-group">
+							<label for="course_code">Course Code</label>
+							<input type="text" class="form-control" id="course_code" placeholder="Enter course code">
+						</div>
+						<div class="form-group">
+							<label for="description">Course Description</label>
+							<input type="text" class="form-control" id="description" placeholder="Enter course description">
+						</div>
+						<div class="form-group">
+							<label for="modules">Course Modules</label>
+							<div id="module-container">
+								<input type="text" class="form-control mb-2" id="modules" name="modules[]" placeholder="Enter course module">
+							</div>
+							<button type="button" class="btn btn-outline-secondary" onclick="addModuleField()">Add Module</button>
+						</div>
+						
+						<script>
+						function addModuleField() {
+							// Create a new input field
+							const newField = document.createElement('input');
+							newField.type = 'text';
+							newField.className = 'form-control mb-2';
+							newField.name = 'modules[]'; // Use an array name to handle multiple inputs
+							newField.placeholder = 'Enter course module';
+						
+							// Append the new field to the module container
+							document.getElementById('module-container').appendChild(newField);
+						}
+						</script>
+						
+						<div class="form-group">
+							<label for="course_department">Course Department</label>
+							<select class="form-control" id="course_department">
+								<option value="">Select Department</option>
+								<option value="School of Applied Science">School of Applied Science</option>
+								<option value="School of Business">School of Business</option>
+								<option value="School of Design">School of Design</option>
+								<option value="School of Engineering">School of Engineering</option>
+								<option value="School of Humanities & Social Sciences">School of Humanities & Social Sciences</option>
+								<option value="School of Informatics & IT">School of Informatics & IT</option>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label for="course_fee">Course Fee</label>
+							<input type="text" class="form-control" id="course_fee" placeholder="Enter course fee">
+						</div>
+						<div class="form-group">
+							<label for="requirements">Course Requirements</label>
+							<input type="text" class="form-control" id="requirements" placeholder="Enter course requirements">
+						</div>
+						<div class="form-group">
+							<label for="course_intake">Course Intake</label>
+							<input type="text" class="form-control" id="course_intake" placeholder="Enter course intake">
+						</div>
+						<p align="right" id="message" class=""></p>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="addCourse()">Add New Course</button>
+			</div>
+		</div>
+      
     <!--Update course modal-->
     <div class="modal" id="updateModal" style="display: none;">
         <div class="modal-content">
@@ -38,12 +124,13 @@
                 <label for="course_department">Course Department*</label>
                 <select name="course_department" id="course_department" required>
                     <option value="">Select Department</option>
-                    <option value="Applied Science">Applied Science</option>
-                    <option value="Business">Business</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
-                    <option value="Information Technology">Information Technology</option>
-                    <option value="Design">Design</option>
+                    <option value="Applied Science">School of Applied Science</option>
+                    <option value="Business">School of Business</option>
+                    <option value="Design">School of Design</option>
+                    <option value="Engineering">School of Engineering</option>
+                    <option value="Humanities and Social Sciences">School of Humanities and Social Sciences</option>
+                    <option value="Information Technology">School of Informatics & IT</option>
+                  
                 </select>
                 <label for="course_duration">Course Fee*</label>
                 <input type="number" name="course_fee" id="course_fee" placeholder="Course Fee" required>

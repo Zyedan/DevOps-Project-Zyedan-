@@ -1,73 +1,103 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
 .header {
-    padding: 10px;
-    text-align: center;
-    background-color: #334d73;
-    color: aliceblue;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.get {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
+    background-color: #4CAF50;
     color: white;
     text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
+    padding: 1rem 0;
 }
 
-.post {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: block;
-}
-
-.put {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.delete {
-    border-radius: 4px;
-    background-color:#4378a6;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 28px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.main {
+/* Navigation Bar */
+.nav {
     display: flex;
+    background-color: #333;
     justify-content: center;
-    align-items: center;
-    height: 30vh;
+}
 
+.nav a {
+    padding: 14px 20px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Main Content */
+.container {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form select, form textarea {
+    font-size: 16px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Error Message Styling */
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+
+.text-success {
+    color: green;
+    font-weight: bold;
 }

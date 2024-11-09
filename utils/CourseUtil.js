@@ -3,7 +3,37 @@ const { read } = require('fs');
 const { Course } = require('../models/Course');
 const fs = require('fs').promises;
 
+//readJson function
 async function readJSON(filename) {
+	try {
+		const data = await fs.readFile(filename, 'utf8');
+		return JSON.parse(data);
+	} catch (err) {
+		console.error(err); throw err;
+	}
+}
+
+//writeJSON function
+async function writeJSON(object, filename) {
+	try {
+		const allObjects = await readJSON(filename);
+		allObjects.push(object);
+
+		await fs.writeFile(filename, JSON.stringify(allObjects), 'utf8');
+		return allObjects;
+	} catch (err) { console.error(err); throw err; }
+}
+
+//add course function
+async function addCourse(req, res) {
+    try {
+        const name = req.body.name;
+        const course_code = req.body.course_code;
+        const description = req.body.description;
+        let modules = req.body.modules;
+        if (!Array.isArray(modules)) {
+            modules = [modules]; 
+        }
     try {
         const data = await fs.readFile(filename, 'utf8');
         return JSON.parse(data);
@@ -11,17 +41,8 @@ async function readJSON(filename) {
         console.error(err); throw err;
     }
 }
-async function writeJSON(object, filename) {
-    try {
-        const allObjects = await readJSON(filename);
-        allObjects.push(object);
 
-        await fs.writeFile(filename, JSON.stringify(allObjects), 'utf8');
-        return allObjects;
-    } catch (err) { console.error(err); throw err; }
-}
-// Function to update the course variables such as name, description etc.
-
+//edit course function
 async function editCourse(req, res) {
     try {
         const id = req.params.id;
@@ -34,6 +55,13 @@ async function editCourse(req, res) {
         const requirements = req.body.requirements;
         const course_intake = req.body.course_intake;
 
+        if (!/^\d+(\.\d+)?$/.test(course_fee) || !/^\d+$/.test(course_intake)) {
+            return res.status(400).json({ message: 'Validation error' });
+        } else {
+            const newCourse = new Course(name, course_code, description, modules, course_department, course_fee, requirements, course_intake);
+            const updatedCourses = await writeJSON(newCourse, 'utils/courses.json');
+            return res.status(201).json(updatedCourses);
+          
         const allCourses = await readJSON('utils/courses.json');
 
         var modified = false;
@@ -64,6 +92,7 @@ async function editCourse(req, res) {
     }
 }
 
+//view course function
 async function viewCourses(req, res) {
     try{
         const allCourses = await readJSON('utils/courses.json');
@@ -72,4 +101,8 @@ async function viewCourses(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
-module.exports = { readJSON, writeJSON, editCourse, viewCourses };
+
+module.exports = { readJSON, writeJSON, addCourse, editCourse, viewCourses };
+
+
+

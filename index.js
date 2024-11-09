@@ -1,19 +1,17 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 var app = express();
-
 const PORT = process.env.PORT || 5050;
-
 var startPage = "index.html";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.static("./public"));
 
-const { editCourse, viewCourses } = require('./utils/CourseUtil');
+const { editCourse, viewCourses, addCourse } = require('./utils/CourseUtil');
 app.put('/edit-course/:id', editCourse);
 app.get('/view-courses', viewCourses);
+app.post('/add-course', addCourse);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
