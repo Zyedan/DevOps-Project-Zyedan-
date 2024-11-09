@@ -23,11 +23,41 @@ async function writeJSON(object, filename) {
     }
 }
 
+async function readAllStudents(req, res) {
+    try {
+        const students = await readJSON(studentsFilePath);
+        res.json(students); // Respond with JSON data
+    } catch (error) {
+        res.status(500).json({ message: 'Error reading students data', error: error.message });
+    }
+}
+
+async function getStudentById(req, res) {
+    try {
+        const studentID = req.params.id; // Get student ID from URL parameter
+        const students = await readJSON(studentsFilePath); // Read all students
+
+        // Find the student with the specified ID
+        const student = students.find(s => s.id === studentID);
+
+        if (!student) {
+            return res.status(404).json({ message: 'Student not found.' });
+        }
+
+        // Respond with the student data
+        res.json(student);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving student data', error: error.message });
+    }
+}
+
+
 async function updateStudent(req, res) {
     try {
-        // Extract admissionID and other student details from request body
+        const studentID = req.params.id; // Get the student ID from the URL parameter
+
+        // Extract student details from the request body
         const {
-            admissionID,
             firstName,
             lastName,
             dateOfBirth,
@@ -40,10 +70,6 @@ async function updateStudent(req, res) {
         } = req.body;
 
         // Validation checks
-        if (!admissionID) {
-            return res.status(400).json({ message: 'admissionID is required for updating student information.' });
-        }
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailAddress && !emailRegex.test(emailAddress)) {
             return res.status(400).json({ message: 'Invalid email format.' });
@@ -64,8 +90,8 @@ async function updateStudent(req, res) {
         // Read existing students from the JSON file
         const allStudents = await readJSON(studentsFilePath);
 
-        // Find the student with the given admissionID
-        const studentIndex = allStudents.findIndex(student => student.admissionID === admissionID);
+        // Find the student with the given ID (use studentID from URL parameter, not admissionID)
+        const studentIndex = allStudents.findIndex(student => student.id === studentID);
 
         if (studentIndex === -1) {
             return res.status(404).json({ message: 'Student not found.' });
@@ -101,5 +127,7 @@ async function updateStudent(req, res) {
 module.exports = {
     readJSON,
     writeJSON,
-    updateStudent
+    updateStudent,
+    readAllStudents,
+    getStudentById,
 };
