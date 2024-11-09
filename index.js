@@ -1,9 +1,12 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 
+const { addStudent } = require('./utils/addStudentUtil');
+
 const { updateStudent } = require('./utils/updateStudent');
 
 var app = express();
+
 
 const PORT = process.env.PORT || 5050;
 
@@ -13,13 +16,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static("./public"));
+app.use(express.json());    
+
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
 
+app.post('/add-student', addStudent);
 
 app.put('/update-student/:id', updateStudent);
+
 
 server = app.listen(PORT, function () {
     const address = server.address();
