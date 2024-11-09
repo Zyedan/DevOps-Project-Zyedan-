@@ -2,93 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>DevOps</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="header"> 
-        <h1> Student Management System </h1>
-    </div> 
+        <h1> Welcome </h1>
+    </div>
     <div class="main"> 
-        <button class="postStudent btn" onclick="showModal('addStudentModal')">POST STUDENT</button>
-        <button class="updateStudent btn">UPDATE STUDENT</button>
-        <button class="postCourse btn">POST COURSE</button>
-        <button class="updateCourse btn">UPDATE COURSE</button>
+        <button class="get btn">GET</button>
+        <button class="post btn"> POST </button>
+        <button class="put btn"> PUT </button>
+        <button class="delete btn"> DELETE </button>
     </div>
-
-    <!-- Add Student Modal -->
-    <div id="addStudentModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('addStudentModal')">&times;</span>
-            <h2>Add Student</h2>
-            <form id="addStudentForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="admissionID">Admission ID</label>
-                        <input type="text" id="admissionID" name="admissionID" placeholder="Admission ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dateOfBirth">Date of Birth</label>
-                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select id="gender" name="gender" required>
-                            <option value="" disabled selected>Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option> 
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="emailAddress">Email Address</label>
-                        <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address" required>
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="course">Course</label>
-                        <input type="text" id="course" name="course" placeholder="Course" required>
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="yearOfStudy">Year of Study</label>
-                        <input type="number" id="yearOfStudy" name="yearOfStudy" placeholder="Year of Study" required>
-                    </div>
-                    <div class="form-group">
-                        <label for = "profilePicture">Profile Picture</label>
-                        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
-                    </div>
-                </div>
-                
-                <button type="button" onclick="addStudent()">Submit</button>
-            </form>
-            <p id="message" class="message"></p>
-        </div>
-    </div>
-
-    <script src="js/addStudent.js"></script>
 </body>
 </html>

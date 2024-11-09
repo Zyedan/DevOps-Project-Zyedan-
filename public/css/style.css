@@ -1,211 +1,73 @@
-/* General Body Styling */
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #f4f7fa;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Header Styling */
 .header {
     padding: 10px;
     text-align: center;
     background-color: #334d73;
     color: aliceblue;
-    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Button Styling */
-.btn {
+.get {
     border-radius: 4px;
-    background-color: #4378a6;
+    background-color:#4378a6;
     border: none;
     color: white;
     text-align: center;
-    font-size: 20px;
-    padding: 10px 20px;
-    width: 150px;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
     cursor: pointer;
-    margin: 10px;
-    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block;
 }
 
-.btn:hover {
-    background-color: #3a6c91;
+.post {
+    border-radius: 4px;
+    background-color:#4378a6;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block;
 }
 
-/* Main Container for Buttons */
+.put {
+    border-radius: 4px;
+    background-color:#4378a6;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.delete {
+    border-radius: 4px;
+    background-color:#4378a6;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+    height: 30vh;
 
-/* Modal Background Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(49, 99, 135, 0.5); /* Black background with opacity */
-}
-
-/* Modal Content Styling */
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-    animation:forwards slideDown 0.5s;
-}
-
-.modal-content h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Close Button for Modal */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.close:hover,
-.close:focus {
-    color: #000000;
-}
-
-/* Form Layout */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.form-group {
-    flex: 1;
-    min-width: 45%;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group input[type="file"] {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #333;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-}
-
-.form-group label[for="profilePicture"] {
-    display: block;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-
-
-form label {
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #555;    
-    margin-bottom: 5px;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="number"],
-form input[type="email"],
-form select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #333;
-    box-sizing: border-box;
-}
-
-form input::placeholder {
-    color: #aaa;
-    font-style:inherit; 
-}
-
-/* Submit Button Styling */
-form button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-    
-form button:hover {
-    background-color: #45a049;
-}
-
-/* Message Styling */
-.message {
-    font-size: 1rem;
-    margin-top: 15px;
-}
-
-.text-danger {
-    color: red;
-}
-
-.text-success {
-    color: green;
-}
-
-/* Slide Down Animation */
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .form-row {
-        flex-direction: column;
-    }
 }
