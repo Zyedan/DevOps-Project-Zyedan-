@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 
+const { addStudent } = require('./utils/addStudentUtil');
 const { updateStudent, readAllStudents, getStudentById } = require('./utils/updateStudent');
 
 const studentsFilePath = 'C:\\Users\\offic\\Dvops project\\DevOps-Project\\utils\\students.json';
@@ -24,8 +25,6 @@ app.get('/students', readAllStudents);
 
 // Endpoint to get a single student by ID
 app.get('/students/:id', getStudentById);
-
-app.put('/update-student/:id', updateStudent);
 
 server = app.listen(PORT, function () {
     const address = server.address();
