@@ -1,7 +1,9 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 
-const { updateStudent } = require('./utils/updateStudent');
+const { updateStudent, readAllStudents, getStudentById } = require('./utils/updateStudent');
+
+const studentsFilePath = 'C:\\Users\\offic\\Dvops project\\DevOps-Project\\utils\\students.json';
 
 var app = express();
 
@@ -18,6 +20,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
 
+app.get('/students', readAllStudents);
+
+// Endpoint to get a single student by ID
+app.get('/students/:id', getStudentById);
 
 app.put('/update-student/:id', updateStudent);
 
