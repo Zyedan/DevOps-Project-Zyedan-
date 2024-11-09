@@ -10,5 +10,17 @@
     "course": "Information Technology",
     "yearOfStudy": "2",
     "id": "1731163305444493"
+  },
+  {
+    "admissionID": "2302776J",
+    "firstName": "jaq",
+    "lastName": "goh",
+    "dateOfBirth": "2024-11-03",
+    "gender": "Female",
+    "emailAddress": "2302776J@gmail.com",
+    "phoneNumber": "12345609",
+    "course": "Information Technology",
+    "yearOfStudy": "2",
+    "id": "1731164559619762"
   }
 ]
