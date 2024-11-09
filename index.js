@@ -8,7 +8,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addCourse } = require('./utils/CourseUtil.js');
+const { editCourse, viewCourses, addCourse } = require('./utils/CourseUtil');
+app.put('/edit-course/:id', editCourse);
+app.get('/view-courses', viewCourses);
 app.post('/add-course', addCourse);
 
 app.get('/', (req, res) => {
