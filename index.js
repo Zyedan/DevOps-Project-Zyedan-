@@ -1,6 +1,10 @@
 var express = require('express');
 var bodyParser = require("body-parser");
+
 const { addStudent } = require('./utils/addStudentUtil');
+
+const { updateStudent } = require('./utils/updateStudent');
+
 var app = express();
 
 
@@ -21,6 +25,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add-student', addStudent);
+
+app.put('/update-student/:id', updateStudent);
 
 
 server = app.listen(PORT, function () {
