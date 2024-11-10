@@ -7,15 +7,19 @@ const { updateStudent, readAllStudents, getStudentById } = require('./utils/upda
 const studentsFilePath = 'C:\\Users\\offic\\Dvops project\\DevOps-Project\\utils\\students.json';
 
 var app = express();
-
 const PORT = process.env.PORT || 5050;
-
-var startPage = "index.html";
+var startPage = "course.html";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.static("./public"));
+
+const { editCourse, viewCourses} = require('./utils/updateCourseUtil');
+app.put('/edit-course/:id', editCourse);
+app.get('/view-courses', viewCourses);
+
+const { addCourse } = require('./utils/addCourseUtil');
+app.post('/add-course', addCourse);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
