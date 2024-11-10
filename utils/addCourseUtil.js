@@ -43,7 +43,7 @@ async function addCourse(req, res) {
 
         // Validate the course details
         if (!/^\d+(\.\d+)?$/.test(course_fee) || !/^\d+$/.test(course_intake)) {
-            return res.status(400).json({ message: 'Validation error' });
+            return res.status(400).json({ message: 'Please enter a number for fields: Course fee and/or Course Intake' });
         } else { // Create a new course object
             const newCourse = new Course(name, course_code, description, modules, course_department, course_fee, requirements, course_intake);
             const updatedCourses = await writeJSON(newCourse, 'utils/courses.json');
