@@ -19,7 +19,6 @@ function displayStudents(students) {
         studentDiv.classList.add('student');
 
         studentDiv.innerHTML = `
-            <img src="${student.profilePicture}" alt="Profile Picture of ${student.firstName}">
             <h3>${student.firstName} ${student.lastName}</h3>
             <p><strong>Admission ID:</strong> ${student.admissionID}</p>
             <p><strong>Date of Birth:</strong> ${student.dateOfBirth}</p>

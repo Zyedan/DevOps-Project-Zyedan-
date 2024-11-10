@@ -66,7 +66,7 @@ async function updateStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
-            profilePicture
+            
         } = req.body;
 
         // Validation checks
@@ -83,8 +83,8 @@ async function updateStudent(req, res) {
             return res.status(400).json({ message: 'Invalid gender value.' });
         }
 
-        if (yearOfStudy && !['1st', '2nd', '3rd'].includes(yearOfStudy)) {
-            return res.status(400).json({ message: 'Invalid year of study. It should be one of: 1st, 2nd, 3rd.' });
+        if (yearOfStudy && !['1', '2', '3'].includes(yearOfStudy)) {
+            return res.status(400).json({ message: 'Invalid year of study. It should be one of: 1, 2, 3.' });
         }
 
         // Read existing students from the JSON file
@@ -108,7 +108,6 @@ async function updateStudent(req, res) {
             phoneNumber: phoneNumber || allStudents[studentIndex].phoneNumber,
             course: course || allStudents[studentIndex].course,
             yearOfStudy: yearOfStudy || allStudents[studentIndex].yearOfStudy,
-            profilePicture: profilePicture || allStudents[studentIndex].profilePicture
         };
 
         // Replace the old student data with the updated data
