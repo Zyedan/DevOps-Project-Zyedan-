@@ -1,5 +1,5 @@
 const fs = require('fs').promises; // Import the filesystem module
-const { Student } = require('../models/updateStudentModel.js'); // Import the Student class
+const { Student } = require('../models/studentModel.js'); // Import the Student class
 
 const studentsFilePath = 'utils/students.json'; // Path to students JSON file
 
@@ -66,7 +66,6 @@ async function updateStudent(req, res) {
             phoneNumber,
             course,
             yearOfStudy,
-            
         } = req.body;
 
         // Validation checks
@@ -83,7 +82,7 @@ async function updateStudent(req, res) {
             return res.status(400).json({ message: 'Invalid gender value.' });
         }
 
-        if (yearOfStudy && !['1', '2', '3'].includes(yearOfStudy)) {
+        if (yearOfStudy && ![1, 2, 3].includes(Number(yearOfStudy))) {
             return res.status(400).json({ message: 'Invalid year of study. It should be one of: 1, 2, 3.' });
         }
 

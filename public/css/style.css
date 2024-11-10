@@ -1,3 +1,4 @@
+/* General Header and Button Styles */
 .header {
     padding: 10px;
     text-align: center;
@@ -5,7 +6,17 @@
     color: aliceblue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* Design of the buttons */
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.group-image {
+    width: 300px; /* Adjust width to make the image smaller */
+    height: auto; /* Keeps aspect ratio */
+}
+
 .btn {
     border-radius: 4px;
     background-color: #4378a6;
@@ -31,16 +42,28 @@
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
-}
-
-
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 30vh;
-
 }
+
+/* Position the POST STUDENT button at the top-right corner */
+.add-student-btn {
+    position:absolute; /* Fixed position to stay in the top-right corner */
+    top: 400px; /* Move it closer to the top of the viewport */
+    right: 100px; /* Move it closer to the right edge of the viewport */
+    background-color: #205883;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    padding: 15px 25px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-student-btn:hover {
+    background-color: #3a6c91;
+}
+
 /* Additional styles for student cards */
 .student-container {
     display: flex;
@@ -50,21 +73,17 @@
     margin-top: 20px;
 }
 
-.student-card {
-    border: 1px solid #4378a6;
+.student {
+    border: 1px solid #4378a6; /* Set a new border color */
     border-radius: 8px;
     padding: 15px;
     width: 250px;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #dce4f0; /* Darker background color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-.profile-picture {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-}
 
 .student-details p {
     margin: 5px 0;
@@ -82,8 +101,8 @@
     font-size: 14px; 
 }
 
-/* Modal Styles */
-.modal {
+/* Styles for AddStudentModal */
+#addStudentModal.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -91,36 +110,137 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    background-color: rgba(49, 99, 135, 0.5);
 }
 
-.modal-content {
-    background-color: #fefefe;
+#addStudentModal .modal-content {
+    background-color: #fff;
     margin: 5% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideDown 0.5s forwards;
 }
 
-.close {
+#addStudentModal .modal-content h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#addStudentModal .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-/* Form Container */
+#addStudentModal .close:hover,
+#addStudentModal .close:focus {
+    color: #000;
+}
+
+#addStudentModal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#addStudentModal .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+#addStudentModal .form-group {
+    flex: 1;
+    min-width: 45%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#addStudentModal .form-group label {
+    font-weight: bold;
+    font-size: 1.10rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#addStudentModal .form-group input[type="text"],
+#addStudentModal .form-group input[type="date"],
+#addStudentModal .form-group input[type="number"],
+#addStudentModal .form-group input[type="email"],
+#addStudentModal .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+}
+
+#addStudentModal .form-group input::placeholder {
+    color: #aaa;
+    font-style: inherit;
+}
+
+#addStudentModal form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#addStudentModal form button:hover {
+    background-color: #45a049;
+}
+
+#addStudentModal .message {
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+#addStudentModal .text-danger {
+    color: red;
+}
+
+#addStudentModal .text-success {
+    color: green;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for AddStudentModal */
+@media (max-width: 600px) {
+    #addStudentModal .form-row {
+        flex-direction: column;
+    }
+}
+
+/* Styles for UpdateStudentForm */
 .form-container {
     padding: 20px;
     background-color: #ffffff;
@@ -131,39 +251,59 @@
     border-radius: 8px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input,
-select {
+.form-container h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
     margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
     border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
 }
 
-.button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.submit-button {
+.form-container .submit-button {
     background-color: #4CAF50;
     color: white;
-    margin-bottom: 10px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.cancel-button {
+.form-container .submit-button:hover {
+    background-color: #45a049;
+}
+
+.form-container .cancel-button {
     background-color: #f44336;
     color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.form-container .cancel-button:hover {
+    background-color: #e53935;
 }
