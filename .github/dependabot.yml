@@ -1,0 +1,8 @@
+#dependabot
+#check for updates for npm package weekly
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/"
+    schedule:
+      interval: "weekly"
