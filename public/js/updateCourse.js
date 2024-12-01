@@ -72,6 +72,38 @@ function updateCourse(id) {
         alert('Please fill all fields');
         return;
     }
+    if (jsonData.name.length < 3 || jsonData.name.length > 50) {
+        alert('Course name must be between 3 and 50 characters');
+        return;
+    }
+    if (!/^[A-Za-z0-9\s]+$/.test(jsonData.name)) {
+        alert('Course name can only contain letters, numbers and spaces');
+        return;
+    }
+    if (jsonData.course_code.length < 3 || jsonData.course_code.length > 10) {
+        alert('Course code must be between 3 and 10 characters');
+        return;
+    }
+    if (!/^[A-Za-z0-9]+$/.test(jsonData.course_code)) {
+        alert('Course code can only contain letters and numbers');
+        return;
+    }
+    if (jsonData.description.length < 10 || jsonData.description.length > 200) {
+        alert('Course description must be between 10 and 200 characters');
+        return;
+    }
+    if (jsonData.modules.length < 2 || jsonData.modules.length > 10) {
+        alert('Course modules must be between 2 and 10');
+        return;
+    }
+    if (jsonData.course_fee < 1000 || jsonData.course_fee > 100000) {
+        alert('Course fee must be between 1000 and 100000');
+        return;
+    }
+    if (jsonData.course_intake < 1 || jsonData.course_intake > 1000) {
+        alert('Course intake must be between 1 and 1000');
+        return;
+    }
 
     var request = new XMLHttpRequest();
     request.open('PUT', '/edit-course/' + id, true);
