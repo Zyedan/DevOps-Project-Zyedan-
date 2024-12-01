@@ -298,7 +298,7 @@ describe('Resource API', () => {
                 name: 'Software Engineerings',
                 course_code: 'SE101s',
                 description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance','Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software'],
+                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software'],
                 course_department: 'Computer Sciences',
                 course_fee: 10000,
                 requirements: ['Programming Knowledges', 'Problem Solving Skills'],
