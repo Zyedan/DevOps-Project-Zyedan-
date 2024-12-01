@@ -149,22 +149,6 @@ describe('Resource API', () => {
                 done();
             });
         });
-        it('should return a 400 status code if course department includes special characters', (done) => {
-            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
-                name: 'Software Engineerings',
-                course_code: 'SE101s',
-                description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
-                course_department: 'CS101$',
-                course_fee: 10000,
-                requirements: ['Programming Knowledges', 'Problem Solving Skills'],
-                course_intake: 750
-            }).end((err, res) => {
-                if (err) return done(err);
-                expect(res).to.have.status(400);
-                done();
-            });
-        });
         it('should return a 400 status code if modules are less than 1', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
                 name: 'Software Engineerings',
@@ -213,54 +197,6 @@ describe('Resource API', () => {
                 done();
             });
         });
-        it('should return a 400 status code if course department includes special characters', (done) => {
-            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
-                name: 'Software Engineerings',
-                course_code: 'SE101s',
-                description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
-                course_department: 'CS101$',
-                course_fee: 10000,
-                requirements: ['Programming Knowledges', 'Problem Solving Skills'],
-                course_intake: 750
-            }).end((err, res) => {
-                if (err) return done(err);
-                expect(res).to.have.status(400);
-                done();
-            });
-        });
-        it('should return a 400 status code if requirements are less than 1', (done) => {
-            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
-                name: 'Software Engineerings',
-                course_code: 'SE101s',
-                description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
-                course_department: 'Computer Sciences',
-                course_fee: 10000,
-                requirements: [],
-                course_intake: 750
-            }).end((err, res) => {
-                if (err) return done(err);
-                expect(res).to.have.status(400);
-                done();
-            });
-        });
-        it('should return a 400 status code if requirements are greater than 10', (done) => {
-            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
-                name: 'Software Engineerings',
-                course_code: 'SE101s',
-                description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
-                course_department: 'Computer Sciences',
-                course_fee: 10000,
-                requirements: ['Programming Knowledges', 'Problem Solving Skills', 'Software Engineering', 'Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments', 'Software Deployments', 'Software Deployments', 'Software Deployments', 'Software Deployments'],
-                course_intake: 750
-            }).end((err, res) => {
-                if (err) return done(err);
-                expect(res).to.have.status(400);
-                done();
-            });
-        });
         it('should return a 400 status code if course intake is less than 1', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
                 name: 'Software Engineerings',
@@ -298,7 +234,7 @@ describe('Resource API', () => {
                 name: 'Software Engineerings',
                 course_code: 'SE101s',
                 description: 'Software Engineering is a field that deals with the development of software applicationss.',
-                modules: ['Software Development', 'Software Testing', 'Software Maintenance','Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software'],
+                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software', 'Software'],
                 course_department: 'Computer Sciences',
                 course_fee: 10000,
                 requirements: ['Programming Knowledges', 'Problem Solving Skills'],

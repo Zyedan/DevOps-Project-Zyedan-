@@ -75,23 +75,12 @@ async function editCourse(req, res) {
             return res.status(400).json({ message: 'Course description is required and be between 10 to 200 characters' });
         }
         //Course modules validation
-        if (!modules || modules.length < 1 || modules.length > 10) {
-            return res.status(400).json({ message: 'Course modules are required and must be between 1 to 10' });
-        }
-        //Course department validation
-        if (!course_department || course_department.trim() === '' || course_department.length < 3 || course_department.length > 50) {
-            return res.status(400).json({ message: 'Course department is required and be between 3 to 50 characters' });
-        }
-        if (!/^[A-Za-z0-9\s]+$/.test(course_department)) {
-            return res.status(400).json({ message: 'Course department can only contain letters, numbers and spaces' });
+        if (!modules || modules.length < 2 || modules.length > 10) {
+            return res.status(400).json({ message: 'Course modules are required and must be between 2 to 10' });
         }
         //Course fee validation
         if (!course_fee || course_fee < 1000 || course_fee > 100000) {
             return res.status(400).json({ message: 'Course fee is required and must be between 1000 to 100000' });
-        }
-        //Course requirements validation
-        if (!requirements || requirements.length < 1 || requirements.length > 10) {
-            return res.status(400).json({ message: 'Course requirements are required and must be between 1 to 10' });
         }
         //Course intake validation
         if (!course_intake || course_intake < 1 || course_intake > 1000) {
