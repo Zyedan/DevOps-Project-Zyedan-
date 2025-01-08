@@ -1,6 +1,6 @@
 {
-  "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\Dev-Ops Part2\\DevOps-Project-Zyedan-\\public\\js\\addCourse.js": {
-    "path": "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\Dev-Ops Part2\\DevOps-Project-Zyedan-\\public\\js\\addCourse.js",
+  "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\DevOps-submission part 2\\DevOps-Project-Zyedan-\\public\\js\\addCourse.js": {
+    "path": "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\DevOps-submission part 2\\DevOps-Project-Zyedan-\\public\\js\\addCourse.js",
     "statementMap": {
       "0": {
         "start": {
@@ -707,10 +707,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "5299307bec54e93d2911f14507e97798b8287954"
+    "hash": "9a280321e2af888366e0de83793b435476d1ac3c"
   },
-  "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\Dev-Ops Part2\\DevOps-Project-Zyedan-\\public\\js\\updateCourse.js": {
-    "path": "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\Dev-Ops Part2\\DevOps-Project-Zyedan-\\public\\js\\updateCourse.js",
+  "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\DevOps-submission part 2\\DevOps-Project-Zyedan-\\public\\js\\updateCourse.js": {
+    "path": "C:\\Users\\szyed\\OneDrive - Temasek Polytechnic\\IT Work folder\\DevOps-submission part 2\\DevOps-Project-Zyedan-\\public\\js\\updateCourse.js",
     "statementMap": {
       "0": {
         "start": {
@@ -835,11 +835,11 @@
       "12": {
         "start": {
           "line": 32,
-          "column": 1
+          "column": 4
         },
         "end": {
           "line": 32,
-          "column": 38
+          "column": 41
         }
       },
       "13": {
@@ -945,11 +945,11 @@
       "23": {
         "start": {
           "line": 46,
-          "column": 1
+          "column": 4
         },
         "end": {
           "line": 46,
-          "column": 37
+          "column": 40
         }
       },
       "24": {
@@ -1015,11 +1015,11 @@
       "30": {
         "start": {
           "line": 57,
-          "column": 20
+          "column": 23
         },
         "end": {
           "line": 57,
-          "column": 63
+          "column": 66
         }
       },
       "31": {
@@ -1455,21 +1455,21 @@
       "74": {
         "start": {
           "line": 117,
-          "column": 3
+          "column": 12
         },
         "end": {
           "line": 117,
-          "column": 80
+          "column": 89
         }
       },
       "75": {
         "start": {
           "line": 118,
-          "column": 3
+          "column": 12
         },
         "end": {
           "line": 118,
-          "column": 40
+          "column": 49
         }
       },
       "76": {
@@ -1485,11 +1485,11 @@
       "77": {
         "start": {
           "line": 121,
-          "column": 3
+          "column": 12
         },
         "end": {
           "line": 121,
-          "column": 79
+          "column": 88
         }
       },
       "78": {
@@ -2276,18 +2276,18 @@
       }
     },
     "s": {
-      "0": 19,
-      "1": 19,
-      "2": 19,
-      "3": 19,
-      "4": 19,
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 17,
+      "4": 17,
       "5": 16,
       "6": 16,
       "7": 16,
       "8": 16,
       "9": 96,
       "10": 16,
-      "11": 19,
+      "11": 17,
       "12": 16,
       "13": 16,
       "14": 16,
@@ -2347,21 +2347,21 @@
       "68": 2,
       "69": 2,
       "70": 2,
-      "71": 2,
-      "72": 2,
-      "73": 2,
-      "74": 2,
-      "75": 2,
+      "71": 0,
+      "72": 0,
+      "73": 0,
+      "74": 0,
+      "75": 0,
       "76": 0,
       "77": 0,
       "78": 2
     },
     "f": {
-      "0": 19,
+      "0": 17,
       "1": 16,
       "2": 16,
       "3": 16,
-      "4": 2
+      "4": 0
     },
     "b": {
       "0": [
@@ -2439,11 +2439,11 @@
         3
       ],
       "17": [
-        2,
+        0,
         0
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c03c93c8c9e0f7b9784478bd84f35e16698276a5"
+    "hash": "5918a18296e37e6bc99d02937a87a3e3bc29f2d1"
   }
 }
