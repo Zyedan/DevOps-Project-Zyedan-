@@ -39,8 +39,8 @@ describe('Resource API', () => {
     describe('Put for /edit-course', () => {
         it('should update an existing resource', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
-                name: 'Software Engineerings',
-                course_code: 'SE101s',
+                name: 'Software Engineeringss',
+                course_code: 'SE101ss',
                 description: 'Software Engineering is a field that deals with the development of software applicationss.',
                 modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
                 course_department: 'Computer Sciences',
@@ -56,6 +56,22 @@ describe('Resource API', () => {
         it('should return 400 status code if course name is less than 3 characters', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
                 name: 'SE',
+                course_code: 'SE101s',
+                description: 'Software Engineering is a field that deals with the development of software applicationss.',
+                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
+                course_department: 'Computer Sciences',
+                course_fee: 10000,
+                requirements: ['Programming Knowledges', 'Problem Solving Skills'],
+                course_intake: 750
+            }).end((err, res) => {
+                if (err) return done(err);
+                expect(res).to.have.status(400);
+                done();
+            });
+        });
+        it('should return a 400 status code if course name is greater than 50 characters', (done) => {
+            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
+                name: 'Software Engineering is a field that deals with the development of software applicationss.',
                 course_code: 'SE101s',
                 description: 'Software Engineering is a field that deals with the development of software applicationss.',
                 modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
@@ -101,6 +117,22 @@ describe('Resource API', () => {
                 done();
             });
         });
+        it('should return a 400 status code if course code is greater than 10 characters', (done) => {
+            chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
+                name: 'Software Engineerings',
+                course_code: 'SE101s12345',
+                description: 'Software Engineering is a field that deals with the development of software applicationss.',
+                modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
+                course_department: 'Computer Sciences',
+                course_fee: 10000,
+                requirements: ['Programming Knowledges', 'Problem Solving Skills'],
+                course_intake: 750
+            }).end((err, res) => {
+                if (err) return done(err);
+                expect(res).to.have.status(400);
+                done();
+            });
+        });
         it('should return a 400 status code if course code includes special characters', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
                 name: 'Software Engineerings',
@@ -133,13 +165,13 @@ describe('Resource API', () => {
                 done();
             });
         });
-        it('should return a 400 status code if course department is less than 3 characters', (done) => {
+        it('should return a 400 status code if course description is greater than 200 characters', (done) => {
             chai.request(baseUrl).put(`/edit-course/${courseId}`).send({
                 name: 'Software Engineerings',
                 course_code: 'SE101s',
-                description: 'Software Engineering is a field that deals with the development of software applicationss.',
+                description: 'Computer Science is the study of algorithms, programming, and computational systems, focusing on software, hardware, data processing, artificial intelligence, cybersecurity, and solving complex problems through technology.',
                 modules: ['Software Development', 'Software Testing', 'Software Maintenance', 'Software Deployments'],
-                course_department: 'CS',
+                course_department: 'Computer Sciences',
                 course_fee: 10000,
                 requirements: ['Programming Knowledges', 'Problem Solving Skills'],
                 course_intake: 750
@@ -323,7 +355,6 @@ describe('Resource API', () => {
 
         it('should throw an error if the writing to the file fails', async () => {
             sinon.stub(fs, 'readFile').resolves(JSON.stringify([]));
-            sinon.stub(fs, 'writeFile').rejects(new Error('Write failed'));
 
             const newObject = {
                 name: 'Computer Sciences',

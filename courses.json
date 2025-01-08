@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Computer Sciences",
+    "course_code": "CS1010",
+    "description": "Computer Sciences is a field that deals with the study of computers and computational systems.",
+    "modules": [
+      "Computer Programming",
+      "Data Structures",
+      "Algorithms",
+      "Computer Networks"
+    ],
+    "course_department": "Computer Sciences",
+    "course_fee": 10000,
+    "requirements": [
+      "Programming Knowledges",
+      "Problem Solving Skills"
+    ],
+    "course_intake": 500
+  }
+]

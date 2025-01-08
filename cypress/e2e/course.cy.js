@@ -215,7 +215,7 @@ describe('Update Course Frontend', () => {
     cy.get('a[href="course.html"]').click();
     cy.get('button').contains('Edit').click();
     cy.get('#editName').clear().type('Software Engineering', { force: true });
-    cy.get('#editCourse_code').clear().type('SE101', { force: true });
+    cy.get('#editCourse_code').clear().type('SE101', { force: true })
     cy.get('#editDescription').clear().type('Learn software engineering', { force: true });
     cy.get('#editModules').clear().type('Computer Science', { force: true });
     cy.get('#editCourse_department').select('School of Informatics & IT',{force: true});

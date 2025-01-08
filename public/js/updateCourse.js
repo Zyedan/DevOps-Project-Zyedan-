@@ -29,7 +29,7 @@ function viewCourses() {
 }
 
 function editCourse(data) {
-	console.log("Editing course:", data);
+    console.log("Editing course:", data);
     var selectedCourse = JSON.parse(data);
 
     document.getElementById('editName').value = selectedCourse.name;
@@ -43,7 +43,7 @@ function editCourse(data) {
 
     document.getElementById('updateButton').setAttribute('onclick', 'updateCourse("' + selectedCourse.id + '")');
 
-	$('#editCourseModal').modal('show');
+    $('#editCourseModal').modal('show');
 }
 
 function updateCourse(id) {
@@ -54,9 +54,9 @@ function updateCourse(id) {
     jsonData.name = document.getElementById('editName').value;
     jsonData.course_code = document.getElementById('editCourse_code').value;
     jsonData.description = document.getElementById('editDescription').value;
-	var moduleInputs = document.getElementsByName('editModules[]');
+    var moduleInputs = document.getElementsByName('editModules[]');
 
-	//modules is an array
+    //modules is an array
     jsonData.modules = []; //add the modules inputted from frontend into the array
     for (var i = 0; i < moduleInputs.length; i++) {
         if (moduleInputs[i].value !== '') { // Ensure non-empty values are added
@@ -114,11 +114,11 @@ function updateCourse(id) {
 
         if (response.message == 'Course updated successfully') {
             document.getElementById('editMessage').innerHTML = 'Updated Course: ' + jsonData.name + '!';
-			document.getElementById('editMessage').setAttribute('class', 'text-success');
-			window.location.href = 'course.html';
+            document.getElementById('editMessage').setAttribute('class', 'text-success');
+            window.location.href = 'course.html';
         } else {
             document.getElementById('editMessage').innerHTML = 'Unable to update course: ' + response.message;
-			document.getElementById('editMessage').setAttribute('class', 'text-danger');
+            document.getElementById('editMessage').setAttribute('class', 'text-danger');
         }
     };
     request.send(JSON.stringify(jsonData));

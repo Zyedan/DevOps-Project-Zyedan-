@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.46% </span>
+                <span class="strong">91.13% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>77/79</span>
+                <span class='fraction'>72/79</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.61% </span>
+                <span class="strong">95.23% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>41/42</span>
+                <span class='fraction'>40/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.4% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>75/77</span>
+                <span class='fraction'>70/77</span>
             </div>
         
             
@@ -188,12 +188,12 @@
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
@@ -214,7 +214,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,12 +299,12 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -342,7 +342,7 @@
 }
 &nbsp;
 function editCourse(data) {
-	console.log("Editing course:", data);
+    console.log("Editing course:", data);
     var selectedCourse = JSON.parse(data);
 &nbsp;
     document.getElementById('editName').value = selectedCourse.name;
@@ -356,7 +356,7 @@ function editCourse(data) {
 &nbsp;
     document.getElementById('updateButton').setAttribute('onclick', 'updateCourse("' + selectedCourse.id + '")');
 &nbsp;
-	$('#editCourseModal').modal('show');
+    $('#editCourseModal').modal('show');
 }
 &nbsp;
 function updateCourse(id) {
@@ -367,9 +367,9 @@ function updateCourse(id) {
     jsonData.name = document.getElementById('editName').value;
     jsonData.course_code = document.getElementById('editCourse_code').value;
     jsonData.description = document.getElementById('editDescription').value;
-	var moduleInputs = document.getElementsByName('editModules[]');
+    var moduleInputs = document.getElementsByName('editModules[]');
 &nbsp;
-	//modules is an array
+    //modules is an array
     jsonData.modules = []; //add the modules inputted from frontend into the array
     for (var i = 0; i &lt; moduleInputs.length; i++) {
         if (moduleInputs[i].value !== '') { // Ensure non-empty values are added
@@ -422,16 +422,16 @@ function updateCourse(id) {
     request.open('PUT', '/edit-course/' + id, true);
     request.setRequestHeader('Content-Type', 'application/json');
 &nbsp;
-    request.onload = function () {
-        response = JSON.parse(request.responseText);
+    request.onload = <span class="fstat-no" title="function not covered" >fu</span>nction () {
+<span class="cstat-no" title="statement not covered" >        response = JSON.parse(request.responseText);</span>
 &nbsp;
-        if (response.message == 'Course updated successfully') {
-            document.getElementById('editMessage').innerHTML = 'Updated Course: ' + jsonData.name + '!';
-			document.getElementById('editMessage').setAttribute('class', 'text-success');
-			window.location.href = 'course.html';
-        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >        if (response.message == 'Course updated successfully') {</span>
+<span class="cstat-no" title="statement not covered" >            document.getElementById('editMessage').innerHTML = 'Updated Course: ' + jsonData.name + '!';</span>
+<span class="cstat-no" title="statement not covered" >            document.getElementById('editMessage').setAttribute('class', 'text-success');</span>
+<span class="cstat-no" title="statement not covered" >            window.location.href = 'course.html';</span>
+        } else {
 <span class="cstat-no" title="statement not covered" >            document.getElementById('editMessage').innerHTML = 'Unable to update course: ' + response.message;</span>
-<span class="cstat-no" title="statement not covered" >			document.getElementById('editMessage').setAttribute('class', 'text-danger');</span>
+<span class="cstat-no" title="statement not covered" >            document.getElementById('editMessage').setAttribute('class', 'text-danger');</span>
         }
     };
     request.send(JSON.stringify(jsonData));
@@ -442,7 +442,7 @@ function updateCourse(id) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-01T14:14:51.050Z
+                at 2025-01-08T08:27:28.320Z
             </div>
         <script src="prettify.js"></script>
         <script>
